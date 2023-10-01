@@ -26,7 +26,6 @@ RegisterNumber:  212222040014
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
 #reading the data
 data = pd.read_csv("ex1.txt", header=None)
 data
@@ -37,9 +36,7 @@ plt.yticks(np.arange(-5,30,step=5))
 #label
 plt.xlabel("Population of City (10,000s)")
 plt.ylabel("Profit ($10,000)")
-
 data.shape
-
 def computeCost(X,y,theta):
     """
     Take in a numpy array X,y,theta and generate the cost function using
@@ -50,13 +47,11 @@ def computeCost(X,y,theta):
     h=X.dot(theta)
     square_err=(h - y)**2
     return 1/(2*m)*np.sum(square_err)#returning 1
-
 data_n=data.values
 m=data_n[:,0].size
 X=np.append(np.ones((m,1)),data_n[:,0].reshape(m,1),axis=1)
 y=data_n[:,1].reshape(m,1)
 theta=np.zeros((2,1))
-
 computeCost(X,y,theta)
 
 def gradientDescent(x,y,theta,alpha,num_iters):
